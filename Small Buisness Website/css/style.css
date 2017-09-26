@@ -64,3 +64,50 @@ nav ul li a:hover {
     background-color:orange
 }
 
+footer{
+    width:98.7%;
+    background-color:bisque;
+    color:black;
+    text-align:center;
+    padding:5px 0;
+    border:7px outset maroon;
+}
+
+.keepOpen{
+    clear:both;
+}
+
+/* index.html */
+#home_pumpkin{
+    width:400px;
+    display:block;
+    margin:15px;
+    border:7px outset brown;
+    float:left;
+}
+
+h2#h2_home{
+    float:left;
+}
+
+p#p_home{
+    float:left;
+    width:56%;
+}
+
+#about_img{
+    width:475px;
+    display:block;
+    margin:15px;
+    border:7px outset brown;
+    float: left;
+}
+
+h2#about_h2{
+    float:left;
+}
+
+p#about_p{
+    float:left;
+    width:49%
+}
