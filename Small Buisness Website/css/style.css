@@ -39,7 +39,8 @@ nav {
     background-color:dimgray;
     clear:both;
     margin:0;
-    color:white
+    color:white;
+    box-shadow:3px 3px 3px #000000;
 }
 
 nav ul{
@@ -47,6 +48,8 @@ nav ul{
     padding:0;
     overflow:hidden;
     list-style:none;
+    font-family: 'Verdana', sans-serif;
+    font-size:18px;
 }
 
 nav ul li {
@@ -127,4 +130,34 @@ p#p_about{
     width:49%;
     margin-top:10px;
     font-family: 'Comfortaa', cursive;
+}
+
+/* produce.html */
+
+div#gallery{
+    width:100%;
+    border:3px dotted red;
+}
+
+figure{
+    width:260px;
+    float:left;
+    background-color:orange;
+    box-shadow:3px 3px 10px black;
+    background: -moz-linear-gradient(right,rgba(206, 120, 3, 0),rgb(214, 125, 2)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(204, 95, 1, 0), #ff9300); /*Standard*/
+}
+
+figure img{
+    display:block;
+    width:200px;
+    margin:25px auto;
+    border:2px #be7b00;
+}
+
+figcaption{
+    text-align:center;
+    padding-bottom:10px 0;
+    font-family:sans-serif;
+    font-size:17px;
 }
