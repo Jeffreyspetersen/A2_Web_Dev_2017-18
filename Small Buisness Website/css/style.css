@@ -146,6 +146,7 @@ figure{
     box-shadow:3px 3px 10px black;
     background: -moz-linear-gradient(right,rgba(206, 120, 3, 0),rgb(214, 125, 2)); /*Fx 3.6-15*/
   background: linear-gradient(to right, rgba(204, 95, 1, 0), #ff9300); /*Standard*/
+    margin-left:45px;
 }
 
 figure img{
