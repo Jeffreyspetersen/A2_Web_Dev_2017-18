@@ -7,3 +7,43 @@ html,body,div,h1,h2,h3,h4,h5,h6,p,ul,ol,li{
 }
 
 /* Universal Style */
+
+body{
+    background-color:#929191;
+}
+
+div#container{
+    display:flex;
+    flex-direction:column;
+    margin:auto;
+    width:100%;
+    background-color:#ff0000;
+}
+
+header#blog-head{
+    width:100%;
+    font-family:sans-serif;
+    height:300px;
+    text-align:center;
+}
+
+/* Blog Post */
+
+div#blog-post{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    width:100%;
+    margin:15px 0;
+    padding:10px;
+    background-color:#ff3e3e;
+    box-shadow:3px 3px 3px black;
+}
+
+div#post-image{
+    display:block;
+    margin:5px;
+    width:150px;
+    height:150px;
+    background-color:#ff8787;
+}
