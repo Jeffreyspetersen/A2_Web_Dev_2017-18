@@ -80,3 +80,8 @@ p#post-text{
     font-family: 'Poppins', sans-serif;
     font-size:1.18em;
 }
+
+video#post-vid{
+    width:auto;
+    height:auto;
+}
