@@ -13,7 +13,7 @@ body{
 div#containter{
     display:flex;
     flex-flow:column;
-    flex-direction:column;
+    flex-direction:row;
     flex-wrap:wrap;
     margin:auto;
     max-width:1024px;
@@ -37,10 +37,42 @@ header img#profile_img{
     border-radius:30%;
     background-color:#fff;
     align-self:flex-end;
+    margin-left:16px;
+}
+
+header div#profile_info{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-self:flex-end;
+    margin-left:32px;
+}
+
+div#profile_info h2{
+    width:100%;
+    order:1;
+    font-size:2em;
+}
+    
+div#profile_info h4{
+    width:100%;
+    order:2;
+    font-size:1em;
 }
 
 nav{
-    
+    width:25%;
+    order:1;
+}
+
+div#content{
+    width:75%;
+    order:2;
+}
+
+footer{
+    width:100%;
+    order:3;
 }
 
 ul{
