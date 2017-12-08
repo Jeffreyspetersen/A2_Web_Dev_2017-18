@@ -53,28 +53,71 @@ div#profile_info h2{
     order:1;
     font-size:2em;
 }
-    
+   
 div#profile_info h4{
     width:100%;
     order:2;
     font-size:1em;
 }
 
+/* navigation */
 nav{
-    width:25%;
+    width:15%;
+    margin: 16px 0px 0 90px;
     order:1;
 }
+nav ul{
+    list-style:none;
+}
+nav li{
+    
+}
+nav li a{
+    text-decoration:none;
+    font-family:sans-serif;
+    color:#000
+}
 
+/*post contents*/
+div#content div.post{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    margin:6px auto;
+    width:90%;
+    height:auto;
+    background-color:#ffe9cc;
+    box-shadow:2px 2px 2px black;
+}
+div#content div.post img.ppp{
+    display:block;
+    order:1;
+    margin:6px;
+    background-color:dimgrey;
+    width:80px;
+    height:80px;
+}
+div#content div.post h3.pnp{
+    order:2;
+    margin:6px;
+    width:60%;
+}
+div#content div.post p.time-stamp{
+    order:3;
+    margin-top:8px;
+}
+div#content div.post h5.p-com{
+    order:4;
+}
+div#content div.post h5.p-like{
+    order:5;
+}
 div#content{
-    width:75%;
+    width:74.048152923583977269%;
     order:2;
 }
 
 footer{
     width:100%;
     order:3;
-}
-
-ul{
-    
 }
