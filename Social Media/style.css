@@ -78,7 +78,7 @@ nav li a{
     color:#000
 }
 
-/*post contents*/
+/* Post Contents */
 div#content div.post{
     display:flex;
     flex-direction:row;
@@ -97,23 +97,42 @@ div#content div.post img.ppp{
     width:80px;
     height:80px;
 }
-div#content div.post h3.pnp{
+
+/* Post Info */
+
+div#content div.post-info{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
     order:2;
+    width:85%;
+}
+div#content div.post div.post-info h3.pnp{
+    order:1;
     margin:6px;
     width:60%;
+    margin-bottom:6px;
 }
-div#content div.post p.time-stamp{
+div#content div.post div.post-info p.time-stamp{
+    order:2;
+    font-size: 0.8em;
+    font-weight:600;
+    color:dimgray;
+}
+div#content div.post  div.post-info div.post-foot{
+    display:flex;
     order:3;
-    margin-top:8px;
+    flex-direction:column;
+    width:100%
 }
-div#content div.post h5.p-com{
-    order:4;
+div#content div.post div.post-foot div.post-info h5.p-com{
+    order:1;
 }
-div#content div.post h5.p-like{
-    order:5;
+div#content div.post div.post-foot div.post-info h5.p-like{
+    order:2;
 }
 div#content{
-    width:74.048152923583977269%;
+    width:74%;
     order:2;
 }
 
