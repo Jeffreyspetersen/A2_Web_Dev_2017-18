@@ -73,7 +73,7 @@ div#profile_info h4{
     font-size:1em;
 }
 
-/* navigation */
+/* Navigation Start */
 nav{
     width:15%;
     margin: 16px 0px 0 90px;
@@ -90,6 +90,11 @@ nav li a{
     font-family:sans-serif;
     color:#000
 }
+
+nav li a:hover{
+    color:darkorange;
+}
+/* Navigation End */
 
 /* Post Contents */
 div#content div.post{
@@ -139,11 +144,33 @@ div#content div.post  div.post-info div.post-foot{
     flex-direction:column;
     width:100%
 }
-div#content div.post div.post-foot div.post-info h5.p-com{
+div#content div.post div.post-foot h5.p-com{
+    display:flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    flex-direction:column;
+    order:1;
+    margin:6px;
+}
+/*Comment Title H5*/
+div#content div.post div.post-foot div.p-com h5{
+    flex:100 1 auto;
+    flex-wrap: wrap;
+    
     order:1;
 }
-div#content div.post div.post-foot div.post-info h5.p-like{
+/* Comment Picture*/
+div#content div.post div.post-foot div.p-com .com-pic{
     order:2;
+    border-radius:100px;
+    width:50px;
+}
+div#content div.post div.post-foot div.p-com .com-p{
+    
+}
+div#content div.post div.post-foot h5.p-like{
+    order:2;
+    margin:6px;
 }
 div#content{
     width:74%;
