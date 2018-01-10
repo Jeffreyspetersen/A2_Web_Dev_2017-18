@@ -166,7 +166,7 @@ div#content div.post div.post-foot div.p-com .com-pic{
     width:50px;
 }
 div#content div.post div.post-foot div.p-com .com-p{
-    
+    order:3;
 }
 div#content div.post div.post-foot h5.p-like{
     order:2;
