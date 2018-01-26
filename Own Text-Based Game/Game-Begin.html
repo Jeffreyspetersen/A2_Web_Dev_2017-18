@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tarun's Adventure</title>
+    </head>
+
+<body>
+    <script>
+        var gold = 10;
+        var health = 3;
+        var food = 0;
+        
+        Start();
+        
+        function Start(){
+            var start = prompt("I just woke up and I am in a place I don't recognize, this place is dark but it has tall luminous buildings. Where should I go?")
+            
+            if(start == "west"){
+                Alley();
+            }
+            else if(start == "north"){
+                Downtown();
+            }
+            else if(start == "east"){
+                Shop();
+            }
+            else if(start == "south"){
+                Start();
+            }
+            else{
+                alert("I can't go " + start)
+                alert("Hint: north, east, south, west")
+                Start();
+            }
+            
+            function Alley(){
+                var alley = prompt("I'm now in a dark alley, I can't see much, but could look around, now what?");
+                
+                if(alley == "east"){
+                    Start();
+                }
+                else if(alley == "look"){
+                    Fight1();
+                }
+                else{
+                    alert("Nothing but walls here")
+                    Alley();
+                }
+            }
+            function Downtown(){
+                var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here.")
+                
+                if(downtown == "talk"){
+                    Conversation1();
+                }
+                else if(downtown == "north"){
+                    North-Gate();
+                }
+                else if(downtown == "west"){
+                    Motel();
+                }
+                else if(downtown == "south"){
+                    Start();
+                }
+                else if(downtown == "east"){
+                    Gallery();
+                }
+                else{
+                    alert("Can't really do that right now.");
+                    Downtown();
+                }
+                
+            }
+                function Shop(){
+                    var shop = prompt("Welcome to the shop! Hows it going, sir? What can i get for you today?");
+                    
+                    if(shop == "list"){
+                        alert("He has: $5 food, $150 some yellow guns, and $50 padded clothing");
+                        Shop();
+                    }
+                    else if(shop == "food"){
+                        alert("Here ya go, sir!");
+                        food ++;
+                        gold --;
+                        Shop();
+                    }
+                    else{
+                        alert("Can't do that for ya, use list to see my options!");
+                        Shop();
+                    }
+                }
+        }
+    </script>
+</body>
+</html>
