@@ -8,10 +8,28 @@
     <script>
         // alert("What're you doing here");
         
+        var inventory = {
+        gold:10,
+        gun:0,
+        cloting:0,
+        food:0,
+        }
         
-        var gold = 10;
-        var health = 3;
-        var food = 0;
+        var player = {
+            firstname:"",
+            lastname:"",
+            gender:"",
+            age:"",
+            health:30,
+            score:0,
+            experience:0,
+        }
+        
+        var thug = {
+            damage: 3,
+            health:5,
+            description:"Evil Thug tryna take your 10 gold.",
+        }
         
         Start();
         
@@ -51,10 +69,11 @@
                 }
             }
             function Downtown(){
-                var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here.")
+                var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here and I could talk to someone to find out what is going on.")
+                
                 
                 if(downtown == "talk"){
-                    Conversation1();
+                    IntroToMe();
                 }
                 else if(downtown == "north"){
                     North-Gate();
@@ -81,16 +100,28 @@
                         alert("He has: $5 food, $150 some yellow guns, and $50 padded clothing");
                         Shop();
                     }
-                    else if(shop == "food"){
+                    else if(shop == "food" && inventory.gold == 5){
                         alert("Here ya go, sir!");
-                        food ++;
-                        gold --;
+                        inventory.gold = inventory.gold - 5;
+                        inventory.food = inventory.food + 1;
+                        alert("You've bought bread! \n bread = " +inventory.food + "\n gold = " + inventory.gold);
                         Shop();
                     }
                     else{
                         alert("Can't do that for ya, use list to see my options!");
                         Shop();
                     }
+                }
+            
+                function IntroToMe(){
+                    alert("Some person is willing talk for a while, seems like a nice guy!");
+                    player.firstname = prompt("What's your first name?");
+                    player.lastname = prompt("What about your last name?");
+                    player.gender = prompt("Sorry for asking but what gender are you?");
+                    player.age = prompt("Last question I promise, how old are you?");
+                    alert("Welcome to Resopotamia, "+ player.firstname + " "+player.lastname +" age "+ player.age)
+                    var beginConvo = confirm("Are you sure this is the right information?");
+                    Convo1();
                 }
         }
     </script>
