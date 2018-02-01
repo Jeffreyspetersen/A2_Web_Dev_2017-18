@@ -10,7 +10,7 @@
         
         var inventory = {
         gold:10,
-        gun:0,
+        Ygun:0,
         cloting:0,
         food:0,
         }
@@ -64,12 +64,12 @@
                     Fight1();
                 }
                 else{
-                    alert("Nothing but walls here")
+                    alert("Nothing but walls here, I could look around or head back.");
                     Alley();
                 }
             }
             function Downtown(){
-                var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here and I could talk to someone to find out what is going on.")
+                var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here and I could talk to someone to find out what is going on.");
                 
                 
                 if(downtown == "talk"){
@@ -100,12 +100,30 @@
                         alert("He has: $5 food, $150 some yellow guns, and $50 padded clothing");
                         Shop();
                     }
-                    else if(shop == "food" && inventory.gold == 5){
+                    else if(shop == "food" && inventory.gold >= 5){
                         alert("Here ya go, sir!");
                         inventory.gold = inventory.gold - 5;
                         inventory.food = inventory.food + 1;
                         alert("You've bought bread! \n bread = " +inventory.food + "\n gold = " + inventory.gold);
                         Shop();
+                    }
+                    else if(shop == "guns" && inventory.gold >= 150){
+                        alert("Here ya go, sir!");
+                        inventory.gold = inventory.gold - 150;
+                        inventory.Ygun = inventory.Ygun + 1;
+                        alert("You've bought a yellow gun! \n guns = " +inventory.Ygun + "\n gold = " + inventory.gold);
+                        Shop();
+                    }
+                    
+                    else if(shop == "clothing" && inventory.gold >= 50){
+                        alert("Here ya go, sir!");
+                        inventory.gold = inventory.gold - 50;
+                        inventory.clothing = inventory.clothing + 1
+                        alert("You've bought clothing! \n clothing = " +inventory.clothing + "\n gold = " + inventory.gold);
+                    }
+                    
+                    else if(shop == "leave"){
+                        Start();
                     }
                     else{
                         alert("Can't do that for ya, use list to see my options!");
@@ -114,14 +132,49 @@
                 }
             
                 function IntroToMe(){
-                    alert("Some person is willing talk for a while, seems like a nice guy!");
+                    var intro = prompt("Hey someone wants to talk to me!");
                     player.firstname = prompt("What's your first name?");
                     player.lastname = prompt("What about your last name?");
                     player.gender = prompt("Sorry for asking but what gender are you?");
                     player.age = prompt("Last question I promise, how old are you?");
                     alert("Welcome to Resopotamia, "+ player.firstname + " "+player.lastname +" age "+ player.age)
                     var beginConvo = confirm("Are you sure this is the right information?");
+                    if(beginConvo);
                     Convo1();
+                }
+                function Convo1(){
+                    var convo = prompt("Hi " +player.firstname +", what can I do for you?");
+                    
+                    if(convo == "hi"){
+                        Convo1();
+                    }
+                    else if(convo == "where am i"){
+                        alert("You are in Resopotamia, just south of the feilds of Primitive Plains!")
+                        Convo1();}
+                    else if(convo == "bye"){
+                        alert("See Ya Later!");
+                        Downtown();
+                    }
+                    else{
+                        alert("Hint: bye, where am i, or hi");
+                        Convo1();
+                    }
+                }
+                function Fight1(){
+                    alert("I'm being attacked by a thug!");
+                    alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
+                    if(fight = "punch" && thug.health >= 1){
+                        alert("I throw a punch as hard as I can. \n does 1 damage");
+                        thug.health = thug.health - 1;
+                        if(thug.health >= 1 ){
+                            alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
+                        alert("His turn! He pinches you hard. \n does 3 damage");
+                        player.health = player.health - 3;
+                        }
+                        else{
+                            alert("")
+                        }
+                    }
                 }
         }
     </script>
