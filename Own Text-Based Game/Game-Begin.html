@@ -163,20 +163,31 @@
                 function Fight1(){
                     alert("I'm being attacked by a thug!");
                     alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
-                    if(fight = "punch" && thug.health >= 1){
-                        alert("I throw a punch as hard as I can. \n does 1 damage");
-                        thug.health = thug.health - 1;
+                    
+                    var thugfight = prompt("A menacing thug appears!");
+                    
+                    if(thugfight = "punch" && thug.health >= 1){
+                        alert("I throw a punch as hard as I can. It does 1 damage");
+                        thug.health = thug.health - 1;}
+                    
                         if(thug.health >= 1 ){
                             alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
                         alert("His turn! He pinches you hard. \n does 3 damage");
                         player.health = player.health - 3;
+                            alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
+                            Fight1();
                         }
-                        else{
-                            alert("")
+                        else if (thug.health <= 0){
+                            alert("You've defeated the thug!");
+                        inventory.gold = inventory.gold + 15;
+                        alert("\n Gold: = " + inventory.gold);
+                            Alley();
                         }
+                            else{
+                            alert("I cannot do that right now!")
+                                Fight1();}
                     }
                 }
-        }
     </script>
 </body>
 </html>
