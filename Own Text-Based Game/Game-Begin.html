@@ -11,8 +11,12 @@
         var inventory = {
         gold:10,
         Ygun:0,
-        cloting:0,
+        clothing:0,
         food:0,
+        }
+        
+        var invlist = function(){
+            alert("Gold = " +inventory.gold + "\n Guns = " +inventory.Ygun + "\n Clothes = " +inventory.clothing + " layers \n Food = " +inventory.food);
         }
         
         var player = {
@@ -23,6 +27,7 @@
             health:30,
             score:0,
             experience:0,
+            level:0,
         }
         
         var thug = {
@@ -48,6 +53,10 @@
             else if(start == "south"){
                 Start();
             }
+            else if(start == "inventory" || start == "show inventory"){
+                invlist();
+                Start();
+            }
             else{
                 alert("I can't go " + start)
                 alert("Hint: north, east, south, west")
@@ -63,6 +72,10 @@
                 else if(alley == "look"){
                     Fight1();
                 }
+                else if(alley == "inventory" || alley == "show inventory"){
+                invlist();
+                Alley();
+            }
                 else{
                     alert("Nothing but walls here, I could look around or head back.");
                     Alley();
@@ -76,7 +89,7 @@
                     IntroToMe();
                 }
                 else if(downtown == "north"){
-                    North-Gate();
+                    NorthGate();
                 }
                 else if(downtown == "west"){
                     Motel();
@@ -87,6 +100,10 @@
                 else if(downtown == "east"){
                     Gallery();
                 }
+                else if(downtown == "inventory" || downtown == "show inventory"){
+                invlist();
+                Downtown();
+            }
                 else{
                     alert("Can't really do that right now.");
                     Downtown();
@@ -161,14 +178,13 @@
                     }
                 }
                 function Fight1(){
-                    alert("I'm being attacked by a thug!");
                     alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
                     
                     var thugfight = prompt("A menacing thug appears!");
                     
-                    if(thugfight = "punch" && thug.health >= 1){
+                    if(thugfight == "punch" && thug.health >= 1){
                         alert("I throw a punch as hard as I can. It does 1 damage");
-                        thug.health = thug.health - 1;}
+                        thug.health = thug.health - 1;
                     
                         if(thug.health >= 1 ){
                             alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
@@ -180,13 +196,34 @@
                         else if (thug.health <= 0){
                             alert("You've defeated the thug!");
                         inventory.gold = inventory.gold + 15;
-                        alert("\n Gold: = " + inventory.gold);
+                        player.experience = player.experience + 20;
+                        alert("\n Gold: = " + inventory.gold + "\n Experience = " + player.experience);
+                            if(player.experience >= 100){
+                                alert("level up!");
+                                player.health = player.health + 5;
+                                player.experience = player.experience - 100;
+                                alert("Health up! \n health = " + player.health);
+                            }
                             Alley();
                         }
+                    }
+                        else if(thugfight == "run" && thug.health >= 1){
+                        alert("I'm going to try to run!");
+                            /* Learn how to set up RNG here */
+                        }
+                    else if(thugfight == "inventory" ||thugfight == "show inventory"){
+                invlist();
+                Fight1();
+            }
+                    
                             else{
+                                alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
                             alert("I cannot do that right now!")
                                 Fight1();}
                     }
+            function NorthGate(){
+                
+            }
                 }
     </script>
 </body>
