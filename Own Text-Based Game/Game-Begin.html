@@ -28,6 +28,7 @@
             score:0,
             experience:0,
             level:0,
+            jump:0,
         }
         
         var thug = {
@@ -85,8 +86,11 @@
                 var downtown = prompt("The buisness is booming here! This place is wild, there are plenty of people here and I could talk to someone to find out what is going on.");
                 
                 
-                if(downtown == "talk"){
+                if(downtown == "talk" && player.firstname == ""){
                     IntroToMe();
+                }
+                else if(downtown == "talk" && player.firstname != ""){
+                    Convo1();
                 }
                 else if(downtown == "north"){
                     NorthGate();
@@ -178,7 +182,6 @@
                     }
                 }
                 function Fight1(){
-                    alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
                     
                     var thugfight = prompt("A menacing thug appears!");
                     
@@ -222,8 +225,128 @@
                                 Fight1();}
                     }
             function NorthGate(){
+                var northgate = prompt("I am at a gate, a field just off into the distance.");
                 
+                if(northgate == "north" && player.firstname == ""){
+                    IntroToMe2();
+                }
+                else if(northgate == "north" && player.firstname != ""){
+                    Field();
+                }
+                else if(northgate == "south"){
+                    Downtown();
+                }
+                else if(northgate == "west" && player.firstname != ""){
+                    Volcano();
+                }
+                else if(northgate == "west" && player.firstname == ""){
+                    IntroToMe3();
+                }
+                else if(northgate == "east" && player.firstname == ""){
+                    IntroToMe4();
+                }
+                else if(northgate == "east" && player.firstname != ""){
+                    Beach();
+                }
+                else{
+                    alert("Can't do that");
+                    NorthGate();
+                }
             }
+             function IntroToMe2(){
+                    var intro = prompt("Hey a guard wants to talk to me!");
+                    player.firstname = prompt("What's your first name?");
+                    player.lastname = prompt("What about your last name?");
+                    player.gender = prompt("Sorry for asking but what gender are you?");
+                    player.age = prompt("Last question I promise, how old are you?");
+                    alert("Welcome to The North Gate, "+ player.firstname + " "+player.lastname +" age "+ player.age)
+                    var beginConvo = confirm("Are you sure this is the right information?");
+                    if(beginConvo);
+                    alert("good talk, cya");
+                    Field();
+                }
+             function IntroToMe3(){
+                    var intro = prompt("Hey a guard wants to talk to me!");
+                    player.firstname = prompt("What's your first name?");
+                    player.lastname = prompt("What about your last name?");
+                    player.gender = prompt("Sorry for asking but what gender are you?");
+                    player.age = prompt("Last question I promise, how old are you?");
+                    alert("Welcome to The North Gate, "+ player.firstname + " "+player.lastname +" age "+ player.age)
+                    var beginConvo = confirm("Are you sure this is the right information?");
+                    if(beginConvo);
+                    alert("good talk, cya");
+                    Volcano();
+                }
+             function IntroToMe4(){
+                    var intro = prompt("Hey a guard wants to talk to me!");
+                    player.firstname = prompt("What's your first name?");
+                    player.lastname = prompt("What about your last name?");
+                    player.gender = prompt("Sorry for asking but what gender are you?");
+                    player.age = prompt("Last question I promise, how old are you?");
+                    alert("Welcome to The North Gate, "+ player.firstname + " "+player.lastname +" age "+ player.age)
+                    var beginConvo = confirm("Are you sure this is the right information?");
+                    if(beginConvo);
+                    alert("good talk, cya");
+                    Beach();
+                }
+            function Motel(){
+                var motel = prompt("Motel Worker: Welcome to the motel, I guess");
+                
+                if (motel == "sleep" && player.health >= 10){
+                alert("You frankly don't look like you need sleep, come back when ya do! \n He then kicks you out");
+                Downtown();}
+                else if (motel == "sleep" && player.health <= 9){
+                alert("Fine, you look like garbage right now so I guess you can stay. \n It seems to be for free!")
+                    player.health = 10;
+                    Motel();
+                }
+                else{
+                    alert("BUZZ OFF! \n He then kicks you out");
+                    Downtown();
+                }
+            }
+            function Gallery(){
+                var gallery = prompt("Welcome to the gallery of modern art!");
+                
+                if(gallery == "look"){
+                    alert("It's beautiful here.");
+                    Gallery();
+                }
+                else if(gallery == "jump" && player.jump <= 1){
+                    alert("I jump");
+                    player.jump = player.jump + 1;
+                    Gallery();
+                }
+                else if(gallery == "jump" && player.jump == 2){
+                    alert("I jump again, but this time when I land I fall through the floor into a dark cavern thing!");
+                SecretCavern();
+                }
+                else if(gallery == "leave"){
+                    Downtown();
+                }
+                else{
+                    alert("Ain't doin that in here!");
+                    Gallery();
+                }
+            }
+            function SecretCavern(){
+                var cavern = prompt("This place is empty and dark besides a white switch on the wall");
+                
+                if(cavern == "flip switch" || "flip"){
+                    SecretEnding();
+                }
+                else{
+                    alert("I'm stuck down here, all I can do is flip the switch.");
+                    SecretCavern();
+                }
+            }
+            function SecretEnding(){
+                alert("I look around and see a park and everything broken besides a sign that says: Welcome to Springville, you recognize here, it's your old home. You got the GOOD ENDING! GOOD JOB!!!");
+                alert("THE END");
+            }
+            function Field(){}
+            function Volcano(){}
+            function Beach(){}
                 }
     </script>
 </body>
