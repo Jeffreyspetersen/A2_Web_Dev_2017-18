@@ -29,12 +29,24 @@
             experience:0,
             level:0,
             jump:0,
+            damage:1,
         }
         
         var thug = {
-            damage: 3,
+            damage:3,
             health:5,
             description:"Evil Thug tryna take your 10 gold.",
+        }
+        
+        var slime = {
+            damage:2,
+            health:10,
+            description:"Gross Grimy Slimy Slime, wasn't trying to fight until you got violent, geez.",
+        }
+        var robot = {
+            damage:5,
+            health:25,
+            description:"A robot, what else can i say?"
         }
         
         Start();
@@ -186,8 +198,8 @@
                     var thugfight = prompt("A menacing thug appears!");
                     
                     if(thugfight == "punch" && thug.health >= 1){
-                        alert("I throw a punch as hard as I can. It does 1 damage");
-                        thug.health = thug.health - 1;
+                        alert("I throw a punch as hard as I can. It does " + player.damage + "damage");
+                        thug.health = thug.health - player.damage;
                     
                         if(thug.health >= 1 ){
                             alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
@@ -205,14 +217,39 @@
                                 alert("level up!");
                                 player.health = player.health + 5;
                                 player.experience = player.experience - 100;
+                                player.damage = player.damage + 1;
                                 alert("Health up! \n health = " + player.health);
+                                alert("Damage up! \n damage = " + player.damage);
                             }
                             Alley();
                         }
                     }
-                        else if(thugfight == "run" && thug.health >= 1){
-                        alert("I'm going to try to run!");
-                            /* Learn how to set up RNG here */
+                    else if(thugfight == "shoot" && player.gun >= 1){
+                       alert("I shoot my gun!");
+                        thug.health = thug.health - player.damage + 3;
+                    
+                        if(thug.health >= 1 ){
+                            alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
+                        alert("His turn! He pinches you hard. \n does 3 damage");
+                        player.health = player.health - 3;
+                            alert("\n Enemy Health: = " + thug.health + "\n My Health = " + player.health);
+                            Fight1();
+                        }
+                        else if (thug.health <= 0){
+                            alert("You've defeated the thug!");
+                        inventory.gold = inventory.gold + 15;
+                        player.experience = player.experience + 20;
+                        alert("\n Gold: = " + inventory.gold + "\n Experience = " + player.experience);
+                            if(player.experience >= 100){
+                                alert("level up!");
+                                player.health = player.health + 5;
+                                player.experience = player.experience - 100;
+                                player.damage = player.damage + 1;
+                                alert("Health up! \n health = " + player.health);
+                                alert("Damage up! \n damage = " + player.damage);
+                            }
+                        }
+                            Alley();
                         }
                     else if(thugfight == "inventory" ||thugfight == "show inventory"){
                 invlist();
@@ -220,7 +257,7 @@
             }
                     
                             else{
-                                alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, padded clothing will make hits from enemies weaker, or you could run from him and not choose a path of violence. NOW TRY IT!!!");
+                                alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, and padded clothing will make hits from enemies weaker, NOW TRY IT!");
                             alert("I cannot do that right now!")
                                 Fight1();}
                     }
@@ -341,13 +378,174 @@
                 }
             }
             function SecretEnding(){
-                alert("I look around and see a park and everything broken besides a sign that says: Welcome to Springville, you recognize here, it's your old home. You got the GOOD ENDING! GOOD JOB!!!");
-                alert("THE END");
-            }
-            function Field(){}
-            function Volcano(){}
-            function Beach(){}
+                if (player.age == "15"){
+                    alert("I realize now! This is Springville, your old home! It's in perfect shape and you see all your childhood friends! You run home and your mom is there, she tears up and gives you a hug and tells you how much she missed you.");
+                    alert("THE Special \n ENDing");
                 }
+                else{
+                alert("I look around and see a park and everything broken besides a sign that says: Welcome to Springville, you recognize here, it's your old home. There is no sign of life though and you don't see anyone. You got the BAD ENDING! GOOD JOB!!!");
+                alert("THE END");}
+            }
+            function Field(){
+                var field = prompt("A big open field. So this is where I can fight and get strong huh?");
+                if(field == "fight"){
+                    FightSequenceField();
+                }
+                else if(field == "south"){
+                    NorthGate();
+                }
+                else{
+                    alert("Nothing else I can do here but fight or go back.")
+                    Field();
+                }
+            }
+            function Volcano(){
+                var volcano = prompt("A boiling hot volcano, it seems if I climb I could get a better view of this world.");
+                if(volcano == "climb"){
+                    alert("I am at the top of the mountain, this world is beautiful...");
+                    alert("suddenly");
+                    alert("A ROBOT!!");
+                    Boss();
+                }
+                else if(volano == "east"){
+                    NorthGate();
+                }
+                else{
+                    alert("I cant do that! I'd burn!")
+                    Volcano();
+                }
+            }
+            function Beach(){
+                var beach = prompt("A nice cool beach, nothin' else to do here but enjoy the beach air and water.");
+                if(beach == "west"){
+                    NorthGate();
+                }
+                else{
+                    alert("Like I said, nothing to do here.");
+                    Beach();
+                }
+            }
+             function FightSequenceField(){
+                    
+                    var fieldfight = prompt("Gross Grimy Slimy Slime, wasn't trying to fight until you got violent, geez.");
+                    
+                    if(fieldfight == "punch" && slime.health >= 1){
+                        alert("I throw a punch as hard as I can. It does " +player.damage + " damage");
+                        slime.health = slime.health - player.damage;
+                    
+                        if(slime.health >= 1 ){
+                            alert("\n Enemy Health: = " + slime.health + "\n My Health = " + player.health);
+                        alert("His turn! He throws a piece of glob at you, OUCH! \n does 2 damage");
+                        player.health = player.health - 2;
+                            alert("\n Enemy Health: = " + slime.health + "\n My Health = " + player.health);
+                            FightSequenceField();
+                        }
+                        else if (slime.health <= 0){
+                            alert("You've defeated the slime!");
+                        inventory.gold = inventory.gold + 10;
+                        player.experience = player.experience + 15;
+                        alert("\n Gold: = " + inventory.gold + "\n Experience = " + player.experience);
+                            if(player.experience >= 100){
+                                alert("level up!");
+                                player.health = player.health + 5;
+                                player.experience = player.experience - 100;
+                                player.damage = player.damage + 1;
+                                alert("Health up! \n health = " + player.health);
+                                alert("Damage up! \n damage = " + player.damage);
+                            }
+                            Field();
+                        }
+                    }
+                 else if(fieldfight == "shoot" && player.gun >= 1){
+                       alert("I shoot my gun!");
+                        slime.health = slime.health - player.damage + 3;
+                    
+                        if(slime.health >= 1 ){
+                            alert("\n Enemy Health: = " + slime.health + "\n My Health = " + player.health);
+                        alert("His turn! He throws a piece of glob at you, OUCH! \n does 2 damage");
+                        player.health = player.health - 2;
+                            alert("\n Enemy Health: = " + slime.health + "\n My Health = " + player.health);
+                            FightSequenceField();
+                        }
+                        else if (slime.health <= 0){
+                            alert("You've defeated the slime!");
+                        inventory.gold = inventory.gold + 15;
+                        player.experience = player.experience + 20;
+                        alert("\n Gold: = " + inventory.gold + "\n Experience = " + player.experience);
+                            if(player.experience >= 100){
+                                alert("level up!");
+                                player.health = player.health + 5;
+                                player.experience = player.experience - 100;
+                                player.damage = player.damage + 1;
+                                alert("Health up! \n health = " + player.health);
+                                alert("Damage up! \n damage = " + player.damage);
+                            }
+                        }
+                            Field();
+                        }
+                        
+                        }
+                    else if(fieldfight == "inventory" ||fieldfight == "show inventory"){
+                invlist();
+                FightSequenceField();
+            }
+                    
+                            else{
+                                alert("Hey! I don't think I know how to fight just yet! Wait! Here we go, to fight with fists, use punch, to fight with guns, use shoot, and padded clothing will make hits from enemies weaker, NOW TRY IT!!!");
+                            alert("I cannot do that right now!");
+                                FightSequenceField();}
+                    }
+            function Boss(){
+                    
+                    var boss = prompt("A HUGE ROBOT!");
+                    
+                    if(boss == "punch" && robot.health >= 1){
+                        alert("I throw a punch as hard as I can. It does " + player.damage + " damage");
+                        robot.health = robot.health - player.damage;
+                    
+                        if(robot.health >= 1 ){
+                            alert("\n Enemy Health: = " + robot.health + "\n My Health = " + player.health);
+                        alert("His turn! He slams you with his giant fist. \n does 5 damage");
+                        player.health = player.health - 5;
+                            alert("\n Enemy Health: = " + robot.health + "\n My Health = " + player.health);
+                            Boss();
+                        }
+                        else if (robot.health <= 0){
+                            alert("You've defeated the robot!");
+                            GoodEnding();}
+                        
+                   else if(boss == "shoot" && player.gun >= 1){
+                       alert("I shoot my gun!");
+                        robot.health = robot.health - player.damage + 3;
+                    
+                        if(robot.health >= 1 ){
+                            alert("\n Enemy Health: = " + robot.health + "\n My Health = " + player.health);
+                        alert("His turn! He slams you with his giant fist. \n does 5 damage");
+                        player.health = player.health - 5;
+                            alert("\n Enemy Health: = " + robot.health + "\n My Health = " + player.health);
+                            Boss();
+                        }
+                        else if (robot.health <= 0){
+                            alert("You've defeated the robot!");
+                            }
+                            GoodEnding();
+                   }
+                    }
+                    else if(boss == "inventory" ||boss == "show inventory"){
+                invlist();
+                Boss();
+            }
+                    
+                            else{
+                                alert("To fight with fists, use punch, to fight with guns, use shoot, and padded clothing will make hits from enemies weaker");
+                            alert("I cannot do that right now!");
+                                Boss();}
+                    }
+            function GoodEnding(){
+                alert("you've saved the world from a dangerous cause that no one is aware of, you get to stare off into the distance now on top of this beautiful volcano.");
+                alert("THE good \n ENDing")
+            }
+        }
     </script>
 </body>
 </html>
