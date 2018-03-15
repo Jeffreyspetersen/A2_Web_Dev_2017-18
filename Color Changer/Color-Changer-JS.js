@@ -8,7 +8,7 @@ var changeBtn = document.getElementById("change");
 //This grabs the preview
 var preview = document.getElementById("preview");
 
-var color
+var color;
 
 //Functions//
 
@@ -37,7 +37,7 @@ function changeColor() {
 //Function to open modal//
 
 //Open color changing modal
-changeBtn.onclick = function() {
+changeBtn.onclick = function(){
     modal.style.display = "grid";
 }
 
