@@ -1,4 +1,4 @@
-console.log("Test");
+console.log("Connection");
 //Variables//
 //This grabs the id of the first modal and sets it equal to modal
 var modal = document.getElementById("modal");
