@@ -5,6 +5,7 @@ h1{
 
 p{
     font-family: 'Sirin Stencil', cursive;
+    font-size: 18px;
 }
 
 nav{
@@ -33,14 +34,33 @@ nav{
 }
 
 body{
-    background-color:#9d9d9d
+    background: linear-gradient(to bottom left, #8b8b8b, #969696)
 }
+
 a{
     color:black;
 }
+
 div#P-imgs{
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: space-between;
+}
+
+div#About-Layout{
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+div#About-Layout img{
+    display: flex;
+    justify-content: flex-end;
+    float:right;
+}
+
+div#About-Layout p{
+    display: flex;
+    justify-content: flex-start;
+    float:left;
 }
