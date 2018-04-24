@@ -1,5 +1,5 @@
 /* CSS Reset */
-html, body, #container, header, nav, div, #content, footer, h1, h2, h3, h4, h5, h6, ul, li{
+html, body, #container, header, nav, div, #content, footer, h1, h2, h3, h4, h5, h6, ul, li, a{
     padding: 0;
     margin:0;
 }
@@ -27,13 +27,28 @@ nav{
 
 nav ul li{
     list-style-type: none;
-    float: left;
-    justify-content: space-around
+    float:left;
 }
 
 nav ul li a{
     display:block;
     text-decoration: none;
+}
+
+nav ul li a#about{
+    margin-left:10%;
+}
+
+nav ul li a#portfolio{
+    margin-left:30%;
+}
+
+nav ul li a#skills{
+    margin-left:29%;
+}
+
+nav ul li a#contact{
+    margin-left:80%;
 }
 
 img{
@@ -50,7 +65,7 @@ header{
 }
 
 body{
-    background: linear-gradient(to bottom left, #8b8b8b, #969696)
+    background: linear-gradient(to top left, #989898, #b5b5b5)
 }
 
 a{
@@ -60,8 +75,19 @@ a{
 div#P-imgs{
     display:flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+div#column1 img{
+    margin-top:10px;
+}
+
+div#column2 img{
+    margin-top:10px;;
+}
+
+div#column3 img{
+    margin-top:10px;
 }
 
 div#About-Layout{
@@ -102,4 +128,23 @@ div#About-Layout h2{
 footer{
     text-align: center;
     background: linear-gradient(to bottom right, #00baba, #007e7e);
+}
+
+div#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width:300px;
+}
+
+div#lists{
+    margin-left:10px;
+}
+
+div#lists ul{
+    margin-left: 10px;
+}
+
+div#relatable{
+    
 }
