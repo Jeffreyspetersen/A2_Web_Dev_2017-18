@@ -135,16 +135,30 @@ div#form{
     flex-direction: column;
     justify-content: space-around;
     width:300px;
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 div#lists{
     margin-left:10px;
+    margin-bottom:10px;
 }
 
 div#lists ul{
     margin-left: 10px;
 }
 
-div#relatable{
-    
+div#relatable{}
+
+h3{
+  font-family: 'Courgette', cursive;  
+}
+
+h2{
+  font-family: 'Sirin Stencil', cursive;
+}
+
+li{
+    font-family: 'Courgette', cursive;
 }
