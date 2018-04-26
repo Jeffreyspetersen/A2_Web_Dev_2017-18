@@ -149,6 +149,12 @@ div#lists ul{
     margin-left: 10px;
 }
 
+div#lists ul li{
+    margin-left: 10px;
+    list-style:none;
+    font-size:1.15em;
+}
+
 div#relatable{}
 
 h3{
@@ -157,8 +163,17 @@ h3{
 
 h2{
   font-family: 'Sirin Stencil', cursive;
+  font-size: 1.5em;
 }
 
 li{
     font-family: 'Courgette', cursive;
+}
+
+@media screen and (max-width: 992px) {
+    
+}
+
+@media screen and (max-width: 600px) {
+    
 }
