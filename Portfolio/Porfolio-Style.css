@@ -1,5 +1,5 @@
 /* CSS Reset */
-html, body, #container, header, nav, div, #content, footer, h1, h2, h3, h4, h5, h6, ul, li, a{
+html, body, #container, header, nav, div, #content, footer, h1, h2, h3, h4, h5, h6, ul, li, a, p{
     padding: 0;
     margin:0;
 }
@@ -16,18 +16,22 @@ p{
 }
 
 nav{
-    display:flex;
+    display:block;
     width: 100%;
     font-family: 'Sirin Stencil', cursive;
     font-size:24px;
     color: white;
     text-decoration: none;
     background: linear-gradient(to bottom right, #00baba, #007e7e);
+    float:left;
 }
 
 nav ul li{
     list-style-type: none;
+    display:block;
+    text-align: center;
     float:left;
+    margin-left:30px
 }
 
 nav ul li a{
@@ -36,19 +40,15 @@ nav ul li a{
 }
 
 nav ul li a#about{
-    margin-left:10%;
 }
 
 nav ul li a#portfolio{
-    margin-left:30%;
 }
 
 nav ul li a#skills{
-    margin-left:29%;
 }
 
 nav ul li a#contact{
-    margin-left:80%;
 }
 
 img{
@@ -93,6 +93,7 @@ div#column3 img{
 div#About-Layout{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
  }
 
 div#Jeff img{
@@ -113,15 +114,13 @@ div#content{
     display: flex;
     width:100%;
     margin:auto;
+    flex-direction: row;
 }
 
 div#About-Layout h2{
-    float:right;
-    width:80%;
     margin-right:10px;
     margin-top:10px;
     margin-left:10px;
-    height:2%;
     margin-bottom:0;
 }
 
@@ -155,8 +154,6 @@ div#lists ul li{
     font-size:1.15em;
 }
 
-div#relatable{}
-
 h3{
   font-family: 'Courgette', cursive;  
 }
@@ -171,9 +168,109 @@ li{
 }
 
 @media screen and (max-width: 992px) {
+    div#topnav a{
+        float:none;
+        width:100%
+    }
     
+    header{
+    display: flex;
+    background: linear-gradient(to bottom right, #00CC99, #03a77e);
+    width:auto;
+    height:200px;
+    justify-content: space-around;
 }
 
+    div#P-imgs{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-left:10px;
+    margin-right:none;
+    }
+        
 @media screen and (max-width: 600px) {
+    nav{
+        display:block;
+        width: 100%;
+        font-family: 'Sirin Stencil', cursive;
+        font-size:24px;
+        color: white;
+        text-decoration: none;
+        background: linear-gradient(to bottom right, #00baba, #007e7e);
+        float:left;
+    }
+
+    nav ul li{
+        list-style-type: none;
+        display:block;
+        text-align: center;
+        float:none;
+        margin-left:auto;
+    }
+
+    nav ul li a{
+        display:block;
+        text-decoration: none;
+    }
+
+    header{
+    display: flex;
+    background: linear-gradient(to bottom right, #00CC99, #03a77e);
+    width:100%;
+    height:250px;
+    justify-content: space-around;
+    }
     
+    header h1{
+        text-align: center;
+    }
+    
+    div#Jeff img{
+    display: block;
+    float:none;
+    border: 7px outset #00CC99;
+    margin-left:10px;
+    margin-top:10px;
+    }
+    
+    div#About-Layout p{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin-right:10px;
+    margin-left:10px;
+    }
+    
+    div#About-Layout{
+    float:none
+ }
+    div#P-imgs{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width:100%;
+    }
+    
+    div#P-imgs img{
+        align-content: center;
+        justify-content: center;
+        
+    }
+
+    div#column1 img{
+        margin-top:10px;
+        width:100%;
+    }
+
+    div#column2 img{
+        margin:0;
+        padding:0;
+    }
+
+    div#column3 img{
+        margin:0;
+        padding:0;
+    }
+
 }
